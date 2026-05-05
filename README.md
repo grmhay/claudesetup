@@ -56,14 +56,14 @@ Customises `CLAUDE.md` for the project, verifies `/do-work` is present, and walk
 
 ## Skills
 
-### Local (installed into `~/.claude/skills/`)
+### Machine-level (installed globally into `~/.claude/skills/` by `install.sh`)
 
 | Skill | Description |
 |-------|-------------|
 | `/setup-dev-rails` | Finish setting up AIHero dev rails in a new Python project |
 | `/omarchy` | Customise the Omarchy Linux desktop (Hyprland, Waybar, themes, keybindings) |
 
-### Community (installed via `npx skills add`)
+### Project-level (installed per-project into `.claude/skills/` by `/setup-dev-rails`)
 
 | Skill | Source |
 |-------|--------|

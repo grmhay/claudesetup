@@ -18,23 +18,19 @@ Verify the following files exist:
 - `plans/` directory
 - `CLAUDE.md` (check it contains the dev rails section)
 
-## Step 2: Verify global Claude skills are installed
+## Step 2: Install community skills into this project
 
-The community skills are managed globally via [claudesetup](https://github.com/grmhay/claudesetup) and should already be present. Check that the following skills are available in `~/.claude/skills/`:
-
-- `write-a-skill`
-- `write-a-prd`
-- `prd-to-plan`
-- `prd-to-issues`
-- `grill-me`
-
-If any are missing, tell the user to run:
+Run the following commands from the project root to install the community skills into `.claude/skills/`:
 
 ```bash
-git clone https://github.com/grmhay/claudesetup
-cd claudesetup
-bash install.sh
+npx skills add aiherohq/skills/write-a-skill
+npx skills add aiherohq/skills/write-a-prd
+npx skills add aiherohq/skills/prd-to-plan
+npx skills add aiherohq/skills/prd-to-issues
+npx skills add aiherohq/skills/grill-me
 ```
+
+Confirm each installs successfully. If `npx` is not available, tell the user to install Node.js first.
 
 ## Step 3: Customise CLAUDE.md for this project
 
