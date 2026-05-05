@@ -1,38 +1,53 @@
 ---
 name: setup-dev-rails
-description: Use this skill to finish setting up the AIHero development rails in a new Python project after running create-python-project.sh and setup-dev-rails.sh
+description: Use this skill to finish setting up the AIHero development rails in a new Python project after running create-python-project.sh
 disable-model-invocation: false
 ---
 
 # Setup Dev Rails
 
-You are helping the user complete the final, interactive steps of setting up the AIHero development rails in their new Python project. The shell script (`setup-dev-rails.sh`) has already handled the mechanical setup. Your job is to handle the steps that require judgement and context.
+You are helping the user complete the final, interactive steps of setting up the AIHero development rails in their new Python project. `create-python-project.sh` has already handled the mechanical setup. Your job is to handle the steps that require judgement and context.
 
-## Step 1: Confirm the shell script ran successfully
-
-Ask the user: "Has `setup-dev-rails.sh` completed without errors?" If not, help them fix the issue before continuing.
+## Step 1: Confirm the script ran successfully
 
 Verify the following files exist:
 - `.pre-commit-config.yaml`
 - `prd/` directory
 - `plans/` directory
-- `CLAUDE.md` (check it contains the dev rails section)
+- `CLAUDE.md` (check it contains the `## Dev rails` section)
 
-## Step 2: Install community skills into this project
+If anything is missing, tell the user to re-run `create-python-project.sh`.
 
-Run the following commands from the project root to install the community skills into `.claude/skills/`:
+## Step 2: Install Matt Pocock skills into this project
+
+Run the following command from the project root to install the Matt Pocock engineering skills into `.claude/skills/`:
 
 ```bash
-npx skills add aiherohq/skills/write-a-skill
-npx skills add aiherohq/skills/write-a-prd
-npx skills add aiherohq/skills/prd-to-plan
-npx skills add aiherohq/skills/prd-to-issues
-npx skills add aiherohq/skills/grill-me
+npx skills@latest add mattpocock/skills
 ```
 
-Confirm each installs successfully. If `npx` is not available, tell the user to install Node.js first.
+When prompted, select **all engineering skills** plus these productivity skills:
+- `grill-me`
+- `write-a-skill`
 
-## Step 3: Customise CLAUDE.md for this project
+Make sure `setup-matt-pocock-skills` is selected — it is required for the other engineering skills to work.
+
+If `npx` is not available, tell the user to install Node.js first.
+
+## Step 3: Run /setup-matt-pocock-skills
+
+Once the skills are installed, run:
+
+```
+/setup-matt-pocock-skills
+```
+
+This configures the per-project settings that the other engineering skills depend on:
+- **Issue tracker**: choose GitHub
+- **Triage labels**: accept defaults or enter any custom labels used in this repo
+- **Docs location**: accept the default (`docs/`)
+
+## Step 4: Customise CLAUDE.md for this project
 
 Read the current `CLAUDE.md`. The dev rails section is already present from the script. Now add 1–3 project-specific rules by asking the user:
 
@@ -42,7 +57,7 @@ Read the current `CLAUDE.md`. The dev rails section is already present from the 
 
 Add their answers to CLAUDE.md under a `## Project conventions` section above the dev rails rules. Keep it concise — one line per rule.
 
-## Step 4: Verify the /do-work skill
+## Step 5: Verify the /do-work skill
 
 The `/do-work` skill is bundled in the pythonproject template at `.claude/skills/do-work/SKILL.md`. Confirm it exists. If missing, create it with this content:
 
@@ -72,24 +87,26 @@ Run `nox`. Iterate until all five sessions pass.
 Write a meaningful commit message describing the why, not the what.
 ```
 
-## Step 5: Verify the full setup
+## Step 6: Verify the full setup
 
 Run through this checklist with the user and confirm each item:
 
 - [ ] `nix develop` enters the dev shell without errors
 - [ ] `nox` passes all five sessions (taplo, format, check, mypy, pytest)
 - [ ] Pre-commit hook fires on a test commit and calls nox
-- [ ] `/skills` lists: write-a-skill, write-a-prd, prd-to-plan, prd-to-issues, grill-me, do-work
+- [ ] `/skills` lists Matt Pocock engineering skills plus `do-work`
 - [ ] `prd/` and `plans/` directories exist
 - [ ] `CLAUDE.md` has both project-specific rules and dev rails rules
 
-## Step 6: Done
+## Step 7: Done
 
 Tell the user the project is ready. Remind them of the daily workflow:
 
 ```
-New feature?   → /write-a-prd → /prd-to-issues
-Start an issue → /clear → @prd @plan "Do issue #N"
-Write logic?   → red-green-refactor, one test at a time
-Validate?      → nox
+New feature?      → /grill-with-docs → /to-prd → /to-issues
+Start an issue?   → /clear → @prd @plan "Do issue #N"
+Write logic?      → /tdd (red-green-refactor, one test at a time)
+Hard bug?         → /diagnose
+Validate?         → nox
+Architecture?     → /improve-codebase-architecture (run every few days)
 ```
