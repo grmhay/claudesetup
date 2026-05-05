@@ -18,19 +18,23 @@ Verify the following files exist:
 - `plans/` directory
 - `CLAUDE.md` (check it contains the dev rails section)
 
-## Step 2: Install community skills
+## Step 2: Verify global Claude skills are installed
 
-Run the following commands to install the standard community skills:
+The community skills are managed globally via [claudesetup](https://github.com/grmhay/claudesetup) and should already be present. Check that the following skills are available in `~/.claude/skills/`:
+
+- `write-a-skill`
+- `write-a-prd`
+- `prd-to-plan`
+- `prd-to-issues`
+- `grill-me`
+
+If any are missing, tell the user to run:
 
 ```bash
-npx skills add aiherohq/skills/write-a-skill
-npx skills add aiherohq/skills/write-a-prd
-npx skills add aiherohq/skills/prd-to-plan
-npx skills add aiherohq/skills/prd-to-issues
-npx skills add aiherohq/skills/grill-me
+git clone https://github.com/grmhay/claudesetup
+cd claudesetup
+bash install.sh
 ```
-
-Confirm each installs successfully. If `npx skills` is not available, tell the user to install it with `npm install -g @anthropic-ai/claude-code` or check their Node.js installation.
 
 ## Step 3: Customise CLAUDE.md for this project
 
@@ -42,9 +46,9 @@ Read the current `CLAUDE.md`. The dev rails section is already present from the 
 
 Add their answers to CLAUDE.md under a `## Project conventions` section above the dev rails rules. Keep it concise — one line per rule.
 
-## Step 4: Create the /do-work skill
+## Step 4: Verify the /do-work skill
 
-Create the file `.claude/skills/do-work/SKILL.md` with this content:
+The `/do-work` skill is bundled in the pythonproject template at `.claude/skills/do-work/SKILL.md`. Confirm it exists. If missing, create it with this content:
 
 ```markdown
 ---
