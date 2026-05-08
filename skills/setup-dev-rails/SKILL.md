@@ -30,16 +30,13 @@ npx skills@latest add mattpocock/skills
 
 ## Step 3: Run /setup-matt-pocock-skills
 
-Once the skills are installed, run:
+Once the skills are installed, run `/setup-matt-pocock-skills`. When it asks questions, answer as follows — do NOT wait for the user to press Enter, answer on their behalf:
 
-```
-/setup-matt-pocock-skills
-```
-
-This configures the per-project settings that the other engineering skills depend on:
-- **Issue tracker**: choose GitHub
-- **Triage labels**: accept defaults or enter any custom labels used in this repo
+- **Issue tracker**: select `1` (GitHub)
+- **Triage labels**: accept the defaults
 - **Docs location**: accept the default (`docs/`)
+
+Do not prompt the user to press Enter or make choices — answer all questions automatically using the values above.
 
 ## Step 4: Customise CLAUDE.md for this project
 
