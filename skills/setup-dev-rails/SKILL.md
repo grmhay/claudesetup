@@ -33,13 +33,13 @@ npx skills@latest add mattpocock/skills
 
 ## Step 3: Run /setup-matt-pocock-skills
 
-Once the skills are installed, run `/setup-matt-pocock-skills`. When it asks questions, answer as follows — do NOT wait for the user to press Enter, answer on their behalf:
+Tell the user to type `/setup-matt-pocock-skills` and press Enter. This skill cannot be invoked automatically. When it asks questions, they should answer as follows:
 
 - **Issue tracker**: select `1` (GitHub)
 - **Triage labels**: accept the defaults
 - **Docs location**: accept the default (`docs/`)
 
-Do not prompt the user to press Enter or make choices — answer all questions automatically using the values above.
+Wait for the user to confirm it has completed before continuing.
 
 ## Step 4: Customise CLAUDE.md for this project
 
