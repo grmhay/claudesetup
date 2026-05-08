@@ -18,21 +18,15 @@ Verify the following files exist:
 
 If anything is missing, tell the user to re-run `create-python-project.sh`.
 
-## Step 2: Install Matt Pocock skills into this project
+## Step 2: Verify Matt Pocock skills are installed
 
-Run the following command from the project root to install the Matt Pocock engineering skills into `.claude/skills/`:
+The Matt Pocock skills are installed by `create-python-project.sh`. Check that `.claude/skills/` contains the expected skills (e.g. `grill-with-docs`, `to-prd`, `tdd`, `setup-matt-pocock-skills`).
+
+If missing, run manually:
 
 ```bash
 npx skills@latest add mattpocock/skills
 ```
-
-When prompted, select **all engineering skills** plus these productivity skills:
-- `grill-me`
-- `write-a-skill`
-
-Make sure `setup-matt-pocock-skills` is selected — it is required for the other engineering skills to work.
-
-If `npx` is not available, tell the user to install Node.js first.
 
 ## Step 3: Run /setup-matt-pocock-skills
 
