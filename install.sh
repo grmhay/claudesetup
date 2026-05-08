@@ -39,5 +39,4 @@ for skill_dir in "$SKILLS_SRC"/*/; do
   echo "  /$(basename "$skill_dir")"
 done
 echo ""
-echo "Note: community skills (write-a-prd, write-a-skill, prd-to-plan, prd-to-issues, grill-me)"
-echo "are installed per-project by running /setup-dev-rails in Claude Code."
+echo "Note: Matt Pocock project-level skills are installed per-project by create-python-project.sh."
