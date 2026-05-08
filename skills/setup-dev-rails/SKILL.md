@@ -20,9 +20,12 @@ If anything is missing, tell the user to re-run `create-python-project.sh`.
 
 ## Step 2: Verify Matt Pocock skills are installed
 
-The Matt Pocock skills are installed by `create-python-project.sh`. Check that `.claude/skills/` contains the expected skills (e.g. `grill-with-docs`, `to-prd`, `tdd`, `setup-matt-pocock-skills`).
+The Matt Pocock skills are installed by `create-python-project.sh`. Check that `.claude/skills/` contains all expected skills:
 
-If missing, run manually:
+- Engineering: `grill-with-docs`, `to-prd`, `to-issues`, `tdd`, `diagnose`, `improve-codebase-architecture`, `zoom-out`, `triage`, `setup-matt-pocock-skills`
+- Productivity: `grill-me`, `write-a-skill`
+
+If any are missing, run manually:
 
 ```bash
 npx skills@latest add mattpocock/skills
@@ -94,10 +97,14 @@ Run through this checklist with the user and confirm each item:
 Tell the user the project is ready. Remind them of the daily workflow:
 
 ```
-New feature?      → /grill-with-docs → /to-prd → /to-issues
-Start an issue?   → /clear → @prd @plan "Do issue #N"
-Write logic?      → /tdd (red-green-refactor, one test at a time)
-Hard bug?         → /diagnose
-Validate?         → nox
-Architecture?     → /improve-codebase-architecture (run every few days)
+Start work?    → nix develop
+
+New feature?   → /grill-with-docs → /to-prd → /to-issues
+Start issue?   → /clear → @prd @plan "Do issue #N" → review → commit → /clear
+Write logic?   → /tdd (red-green-refactor, one test at a time)
+Hard bug?      → /diagnose
+Validate?      → nox (runs automatically via pre-commit hook)
+Architecture?  → /improve-codebase-architecture (run every few days)
+
+Context high?  → commit, /clear, start fresh
 ```
