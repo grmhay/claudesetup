@@ -17,7 +17,8 @@ Installs machine-level skills into `~/.claude/skills/`. The clone is not needed 
 
 | Skill | Description |
 |-------|-------------|
-| `/setup-dev-rails` | Final interactive setup step for a new Python project in Claude Code |
+| `/setup-dev-rails` | Final interactive setup step for a **new** Python project in Claude Code |
+| `/harden-dev-rails` | Bring an **existing** project onto the current rails (mypy strict, ruff list, CI gate, rails checker) |
 | `/omarchy` | Customise the Omarchy Linux desktop (Hyprland, Waybar, themes, keybindings) |
 
 ## Full project setup process
